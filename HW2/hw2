@@ -1,0 +1,24 @@
+src		DCB		'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 0
+dst		DCB		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+		
+		;std		DCB		'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 0
+		
+begin
+		LDR		R0, =src			;Loads R0 from address src
+		LDR		R2, =dst			;Loads R2 from address dst\
+		;LDR		R3, =std
+		;LDR		R3, =0x20
+		MOV		R3, #0
+		LDRB		R0, [R0, R3] ;retrieve first element of soucrce
+		ADDS		R0, R0, #0x20
+		
+		STR		R2, [R0, R3]
+		;LDRB	R4,[R0, #1]
+		;ADDS	R0, #0x20
+		;LSL		R0, R0, #1
+		;ANDS	R0, R0, R3
+		;MOV		R1, #0
+		
+		;MOV		R3, #0
+		
+stop		END
